@@ -1,0 +1,167 @@
+/*
+ * Created on Mar 10, 2005
+ *
+ * To change the template for this generated file go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class FreeCellFrame extends JFrame 
+{
+	private final int width = 800;
+	private final int height = 800;
+	private CardDeck masterdeck;
+	
+	private CardPanel top1;
+	private CardPanel top2;
+	private CardPanel top3;
+	private CardPanel top4;
+	private CardPanel top5;
+	private CardPanel top6;
+	private CardPanel top7;
+	private CardPanel top8;
+	
+	private CardPanel bottom1;
+	private CardPanel bottom2;
+	private CardPanel bottom3;
+	private CardPanel bottom4;
+	private CardPanel bottom5;
+	private CardPanel bottom6;
+	private CardPanel bottom7;
+	private CardPanel bottom8;
+	
+	private JPanel topleft;
+	private JPanel topright;
+	private JPanel bottomright;
+	private JPanel bottomleft;
+	
+	public FreeCellFrame()
+	{
+		setSize(width,height);
+		setTitle("FreeCell");
+		setLayout(new GridLayout(2,2));
+		setBackground(Color.GREEN);
+		Container contentpane = getContentPane();
+		
+		//create the master deck
+		masterdeck = new CardDeck();
+		
+		Iterator suitidx = Suit.VALUES.iterator();
+		while(suitidx.hasNext())
+		{
+			Suit suit = (Suit)suitidx.next();
+			Iterator typeidx = Type.VALUES.iterator();
+			while ( typeidx.hasNext() ) 
+			{
+				Type type = (Type) typeidx.next();
+				Card card = new Card( suit, type );
+				masterdeck.AddCard( card );
+			}
+		}	
+		
+		masterdeck.Shuffle(); //shuffle the cards
+		
+		//create decks
+		CardDeck stack1 = new CardDeck();
+		CardDeck stack2 = new CardDeck();
+		CardDeck stack3 = new CardDeck();
+		CardDeck stack4 = new CardDeck();
+		CardDeck stack5 = new CardDeck();
+		CardDeck stack6 = new CardDeck();
+		CardDeck stack7 = new CardDeck();
+		CardDeck stack8 = new CardDeck();
+		
+		//create holder decks
+		CardDeck empty1 = new CardDeck();
+		CardDeck empty2 = new CardDeck();
+		CardDeck empty3 = new CardDeck();
+		CardDeck empty4 = new CardDeck();
+		CardDeck empty5 = new CardDeck();
+		CardDeck empty6 = new CardDeck();
+		CardDeck empty7 = new CardDeck();
+		CardDeck empty8 = new CardDeck();
+		
+		//divide cards amount stacks
+		for(int idx = 0; idx < 7; idx++)
+			stack1.AddCard(masterdeck.GetCard(idx));
+		for(int idx = 7; idx < 14;idx++)
+			stack2.AddCard(masterdeck.GetCard(idx));
+		for(int idx = 14; idx < 21; idx++)
+			stack3.AddCard(masterdeck.GetCard(idx));
+		for(int idx = 21; idx < 28; idx++)
+			stack4.AddCard(masterdeck.GetCard(idx));
+		for(int idx = 28; idx < 34; idx++)
+			stack5.AddCard(masterdeck.GetCard(idx));
+		for(int idx = 34; idx < 40; idx++)
+			stack6.AddCard(masterdeck.GetCard(idx));
+		for(int idx = 40; idx < 46; idx++)
+			stack7.AddCard(masterdeck.GetCard(idx));
+		for(int idx = 46; idx < 52; idx++)
+			stack8.AddCard(masterdeck.GetCard(idx));
+		
+		
+		//create Panels
+		topleft = new JPanel(new GridLayout(1,4));
+		topright = new JPanel(new GridLayout(1,4));
+		bottomleft = new JPanel(new GridLayout(1,4));
+		bottomright = new JPanel(new GridLayout(1,4));
+		
+		top1 = new CardPanel(empty1, this, "top1", empty1.IsEmpty());
+		top2 = new CardPanel(empty2, this, "top2", empty2.IsEmpty());
+		top3 = new CardPanel(empty3, this, "top3", empty3.IsEmpty());
+		top4 = new CardPanel(empty4, this, "top4", empty4.IsEmpty());
+		top5 = new CardPanel(empty5, this, "top5", empty5.IsEmpty());
+		top6 = new CardPanel(empty6, this, "top6", empty6.IsEmpty());
+		top7 = new CardPanel(empty7, this, "top7", empty7.IsEmpty());
+		top8 = new CardPanel(empty8, this, "top8", empty8.IsEmpty());
+		
+		bottom1 = new CardPanel(stack1, this, "bottom1", stack1.IsEmpty());
+		bottom2 = new CardPanel(stack2, this, "bottom2", stack2.IsEmpty());
+		bottom3 = new CardPanel(stack3, this, "bottom3", stack3.IsEmpty());
+		bottom4 = new CardPanel(stack4, this, "bottom4", stack4.IsEmpty());
+		bottom5 = new CardPanel(stack5, this, "bottom5", stack5.IsEmpty());
+		bottom6 = new CardPanel(stack6, this, "bottom6", stack6.IsEmpty());
+		bottom7 = new CardPanel(stack7, this, "bottom7", stack7.IsEmpty());
+		bottom8 = new CardPanel(stack8, this, "bottom8", stack8.IsEmpty());
+		
+		topleft.add(top1);
+		topleft.add(top2);
+		topleft.add(top3);
+		topleft.add(top4);
+		topright.add(top5);
+		topright.add(top6);
+		topright.add(top7);
+		topright.add(top8);
+		
+		bottomleft.add(bottom1);
+		bottomleft.add(bottom2);
+		bottomleft.add(bottom3);
+		bottomleft.add(bottom4);
+		bottomright.add(bottom5);
+		bottomright.add(bottom6);
+		bottomright.add(bottom7);
+		bottomright.add(bottom8);
+		
+		contentpane.add(topleft);
+		contentpane.add(topright);
+		contentpane.add(bottomleft);
+		contentpane.add(bottomright);
+
+		
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		FreeCellFrame test = new FreeCellFrame();
+		//JFrame tes2t = new JFrame();
+		//tes2t.setSize(400,400);
+		//tes2t.setVisible(true);
+		test.setVisible(true);
+	}
+
+}
