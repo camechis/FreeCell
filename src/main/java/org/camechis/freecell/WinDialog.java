@@ -5,14 +5,24 @@
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
 package org.camechis.freecell;
-import javax.swing.*;
-import javax.swing.ImageIcon;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class WinDialog extends JDialog 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9083997232645079687L;
 	private final FreeCellFrame freecellframe;
 	public WinDialog(FreeCellFrame owner)
 	{

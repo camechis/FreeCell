@@ -5,13 +5,25 @@
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
 package org.camechis.freecell;
-import java.util.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 public class FreeCellFrame extends JFrame 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5851477913501711200L;
 	private final int width = 700;
 	private final int height = 550;
 	private boolean cardselected;

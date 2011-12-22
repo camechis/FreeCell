@@ -7,11 +7,11 @@
 package org.camechis.freecell;
 
 
-import java.awt.*;
-import java.io.*;
-import java.net.URL;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 
-import javax.imageio.*;
+import javax.imageio.ImageIO;
 
 public class Card 
 {
@@ -49,7 +49,6 @@ public class Card
 	public Image getImage()
 	{
 		try{
-			URL url = Thread.currentThread().getContextClassLoader().getResource(imagename);
 			cardimage = ImageIO.read(new File("resources/"+imagename));}
 		catch(IOException e)
 		{
