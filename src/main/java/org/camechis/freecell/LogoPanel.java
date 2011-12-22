@@ -4,7 +4,7 @@
  * To change the template for this generated file go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-
+package org.camechis.freecell;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class LogoPanel extends JPanel
 	{
 		super.paintComponent(g);
 		try{
-			Image image = ImageIO.read(new File("freecell.gif"));
+			Image image = ImageIO.read(new File("resources/freecell.gif"));
 			g.drawImage(image,0,0,null);}
 		catch(IOException e)
 		{

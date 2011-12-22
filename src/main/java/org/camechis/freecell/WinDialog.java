@@ -4,6 +4,7 @@
  * To change the template for this generated file go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
+package org.camechis.freecell;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 
@@ -21,7 +22,7 @@ public class WinDialog extends JDialog
 		setSize(250,150);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		ImageIcon icon = new ImageIcon("smiley1.gif","YOU WIN!!!!");
+		ImageIcon icon = new ImageIcon("resources/smiley1.gif","YOU WIN!!!!");
 		JLabel iconlabel = new JLabel(icon);
 		iconlabel.setText("YOU WIN!!!");
 	

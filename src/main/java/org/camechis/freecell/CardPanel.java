@@ -4,7 +4,7 @@
  * To change the template for this generated file go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
-
+package org.camechis.freecell;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -55,7 +55,7 @@ public class CardPanel extends JPanel implements MouseListener
 		if( (paneldeck.IsEmpty()) && ((freecell == true) || (foundationcells == true)))
 		{
 			try{
-				Image image = ImageIO.read(new File(emptycard));
+				Image image = ImageIO.read(new File("resources/"+emptycard));
 				g.drawImage(image,xcord,ycord,null);}
 			catch(IOException e)
 			{

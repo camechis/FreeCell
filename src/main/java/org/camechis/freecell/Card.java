@@ -4,9 +4,13 @@
  * To change the template for this generated file go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
+package org.camechis.freecell;
+
 
 import java.awt.*;
 import java.io.*;
+import java.net.URL;
+
 import javax.imageio.*;
 
 public class Card 
@@ -45,7 +49,8 @@ public class Card
 	public Image getImage()
 	{
 		try{
-			cardimage = ImageIO.read(new File(imagename));}
+			URL url = Thread.currentThread().getContextClassLoader().getResource(imagename);
+			cardimage = ImageIO.read(new File("resources/"+imagename));}
 		catch(IOException e)
 		{
 			e.printStackTrace();
